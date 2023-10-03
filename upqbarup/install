@@ -51,4 +51,4 @@ if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! -f /usr/local/opt/libusb/lib/libusb-1.0.0.
 fi
 
 echo && echo "Detected your preferred shell is ${PREF_SHELL} and added uqbarup to PATH. Run 'source ${PROFILE}' or start a new terminal session to use uqbarup."
-echo "Then, simply run 'uqbarup' to install Foundry."
+echo "Then, simply run 'uqbarup' to install Uqbar."
