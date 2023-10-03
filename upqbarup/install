@@ -7,7 +7,7 @@ BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
 UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
 UQBAR_BIN_DIR="$UQBAR_DIR/bin"
 
-BIN_URL="https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/upqbarup/install"
+BIN_URL="https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/upqbarup/uqbarup"
 BIN_PATH="$UQBAR_BIN_DIR/uqbarup"
 
 
