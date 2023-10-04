@@ -9,10 +9,6 @@ UQBAR_REPO="$UQBAR_DIR/uqbarup"
 pwd=$(pwd)
 name=$(grep -o 'name = "[^"]*' ./Cargo.toml | sed 's/name = "//')
 
-# TODO shouldn't be here
-rm -rf "$pwd/wit"
-cp -r "$UQBAR_REPO/wit" "$pwd"
-
 mkdir -p "$pwd/target/bindings/$name"
 
 cp "$UQBAR_REPO/target.wasm" "$pwd/target/bindings/$name/"
@@ -31,4 +27,4 @@ cargo build \
 wasm-tools component new "$pwd/target/wasm32-wasi/release/$name.wasm" -o "$pwd/target/wasm32-wasi/release/${name}_adapted.wasm" --adapt "$UQBAR_REPO/wasi_snapshot_preview1.wasm"
 
 # Embed "wit" into the component and place it in the expected location
-wasm-tools component embed wit --world uq-process "$pwd/target/wasm32-wasi/release/${name}_adapted.wasm" -o "$pwd/target/wasm32-unknown-unknown/release/$name.wasm"
+wasm-tools component embed "$UQBAR_REPO/wit" --world uq-process "$pwd/target/wasm32-wasi/release/${name}_adapted.wasm" -o "$pwd/target/wasm32-unknown-unknown/release/$name.wasm"
