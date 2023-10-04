@@ -3,7 +3,7 @@ inspiration from [foundry](https://github.com/foundry-rs/foundry)
 
 ## Installation
 ```bash
-curl -L https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/uqbarup/install | bash
+curl -L https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/install | bash
 ```
 
 # TODO
@@ -12,4 +12,3 @@ curl -L https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/uqbarup/install
 - prompt users to install the following
     - wasm-tools
     - cargo
-- get init/install/uqbar working

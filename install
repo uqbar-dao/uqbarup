@@ -20,7 +20,7 @@ git clone $REPO_URL
 
 # get uqbar script into proper location
 cp "$UQBAR_REPO/uqbar/uqbar" "$UQBAR_BIN_DIR/uqbar"
-.
+
 # build relevant 
 wasm-tools component wit "$UQBAR_REPO/wit/" -o "$UQBAR_REPO/target.wasm" --wasm
 touch "$UQBAR_REPO/world"
