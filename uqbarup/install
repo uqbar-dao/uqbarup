@@ -5,14 +5,15 @@ echo Installing uqbarup...
 
 BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
 UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
-UQBAR_BIN_DIR="$UQBAR_DIR/bin"
 
 REPO_URL="https://github.com/uqbar-dao/uqbarup.git"
+UQBAR_SCRIPT="$UQBAR_DIR/uqbarup/uqbar/uqbar.sh"
 
 # Create the .uqbar bin directory and uqbarup binary if it doesn't exist.
-mkdir -p $UQBAR_BIN_DIR
-git clone $REPO_URL 
-chmod +x "$UQBAR_BIN_DIR/uqbar/uqbar.sh"
+mkdir -p $UQBAR_DIR
+cd $UQBAR_DIR
+git clone $REPO_URL
+chmod +x $UQBAR_SCRIPT
 
 # Store the correct profile file (i.e. .profile for bash or .zshenv for ZSH).
 case $SHELL in
@@ -33,14 +34,14 @@ case $SHELL in
     PREF_SHELL=ash
     ;;
 *)
-    echo "uqbarup: could not detect shell, manually add ${UQBAR_BIN_DIR} to your PATH."
+    echo "uqbarup: could not detect shell, manually add ${UQBAR_DIR} to your PATH."
     exit 1
 esac
 
 # Only add uqbarup if it isn't already in PATH.
-if [[ ":$PATH:" != *":${UQBAR_BIN_DIR}:"* ]]; then
+if [[ ":$PATH:" != *":${UQBAR_DIR}:"* ]]; then
     # Add the uqbarup directory to the path and ensure the old PATH variables remain.
-    echo >> $PROFILE && echo "export PATH=\"\$PATH:$UQBAR_BIN_DIR\"" >> $PROFILE
+    echo >> $PROFILE && echo "export PATH=\"\$PATH:$UQBAR_SCRIPT\"" >> $PROFILE
 fi
 
 # Warn MacOS users that they may need to manually install libusb via Homebrew:
