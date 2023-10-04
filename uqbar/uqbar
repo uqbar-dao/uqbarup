@@ -1,0 +1,20 @@
+#!/bin/bash
+
+BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
+UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
+UQBAR_REPO="$UQBAR_DIR/uqbarup"
+UQBAR_SCRIPTS="$UQBAR_REPO/uqbar"
+
+if [ "$1" == "upload" ]; then
+    shift
+    "$UQBAR_SCRIPTS/upload.sh" "$@"
+elif [ "$1" == "init" ]; then
+    shift
+    "$UQBAR_SCRIPTS/init.sh" "$@"
+elif [ "$1" == "build" ]; then
+    shift
+    "$UQBAR_SCRIPTS/build.sh" "$@"
+else
+    echo "Usage: $0 init|build|upload <args>"
+    exit 1
+fi

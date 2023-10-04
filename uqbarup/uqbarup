@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-# right now we don't really have a need for installing different binaries etc.
-# since all of this stuff is just shell scripts. Eventually we will and then
-# fill out the rest of uqbarup with something similar to foundryup that lets
-# your manage and install which dev tools you are using.
-
-exit 0
