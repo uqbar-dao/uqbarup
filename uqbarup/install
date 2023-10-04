@@ -7,10 +7,11 @@ BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
 UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
 
 REPO_URL="https://github.com/uqbar-dao/uqbarup.git"
-UQBAR_SCRIPT="$UQBAR_DIR/uqbarup/uqbar/uqbar.sh"
+UQBAR_SCRIPT="$UQBAR_DIR/uqbarup/uqbar/uqbar"
 
 # Create the .uqbar bin directory and uqbarup binary if it doesn't exist.
 mkdir -p $UQBAR_DIR
+rm -rf $UQBAR_DIR/uqbarup
 cd $UQBAR_DIR
 git clone $REPO_URL
 chmod +x $UQBAR_SCRIPT
