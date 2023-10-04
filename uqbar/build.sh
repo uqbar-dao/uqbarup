@@ -4,17 +4,18 @@ set -e
 
 BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
 UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
+UQBAR_REPO="$UQBAR_DIR/uqbarup"
 
 pwd=$(pwd)
 name=$(grep -o 'name = "[^"]*' ./Cargo.toml | sed 's/name = "//')
 
 rm -rf "$pwd/wit"
-cp -r "$UQBAR_DIR/wit" "$pwd"
+cp -r "$UQBAR_REPO/wit" "$pwd"
 mkdir -p "$pwd/target/bindings/$name"
 
-cp "$UQBAR_DIR/target.wasm" "$pwd/target/bindings/$name/"
-cp "$UQBAR_DIR/world" "$pwd/target/bindings/$name/"
-cp "$UQBAR_DIR/wasi_snapshot_preview1.wasm" $pwd
+cp "$UQBAR_REPO/target.wasm" "$pwd/target/bindings/$name/"
+cp "$UQBAR_REPO/world" "$pwd/target/bindings/$name/"
+cp "$UQBAR_REPO/wasi_snapshot_preview1.wasm" $pwd
 
 mkdir -p "$pwd/target/wasm32-unknown-unknown/release"
 
