@@ -7,14 +7,12 @@ BASE_DIR=${XDG_CONFIG_HOME:-$HOME}
 UQBAR_DIR=${UQBAR_DIR-"$BASE_DIR/.uqbar"}
 UQBAR_BIN_DIR="$UQBAR_DIR/bin"
 
-BIN_URL="https://raw.githubusercontent.com/uqbar-dao/uqbarup/main/upqbarup/uqbarup"
-BIN_PATH="$UQBAR_BIN_DIR/uqbarup"
-
+REPO_URL="https://github.com/uqbar-dao/uqbarup.git"
 
 # Create the .uqbar bin directory and uqbarup binary if it doesn't exist.
 mkdir -p $UQBAR_BIN_DIR
-curl -# -L $BIN_URL -o $BIN_PATH
-chmod +x $BIN_PATH
+git clone $REPO_URL 
+chmod +x "$UQBAR_BIN_DIR/uqbar/uqbar.sh"
 
 # Store the correct profile file (i.e. .profile for bash or .zshenv for ZSH).
 case $SHELL in
