@@ -19,7 +19,7 @@ if [ ! -e "$WASM_FILE" ]; then
 fi
 
 # Put the payload in a temporary file (.wasm is too large otherwise).
-JSON_PAYLOAD=$(echo -n '{"node": "'"$NODE"'", "process": "'"$PROCESS"'", "capabilities": [["http_bindings", "{\"messaging\": \"{\"Name\":\"http_bindings\"}\"}"]], "wasm": "'"$(base64 < "$WASM_FILE")"'"}')
+JSON_PAYLOAD=$(echo -n '{"node": "'"$NODE"'", "process": "'"$NAME"'", "capabilities": [["http_bindings", "{\"messaging\": \"{\"Name\":\"http_bindings\"}\"}"], ["eth_rpc", "{\"messaging\": \"{\"Name\":\"eth_rpc\"}\"}"]], "wasm": "'"$(base64 < "$WASM_FILE")"'"}')
 echo -n "$JSON_PAYLOAD" > /tmp/temp_payload.json
 
 # Upload the wasm file and start the process through rpc.
